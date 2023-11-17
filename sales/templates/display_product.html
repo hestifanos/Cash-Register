@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <p>Name: {{ product.name }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <a href="{% url 'cash_register' %}">Back to Cash Register</a>
+</body>
+</html>

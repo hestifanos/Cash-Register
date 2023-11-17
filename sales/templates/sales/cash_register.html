@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cash Register</title>
+</head>
+<body>
+    <h1>Cash Register</h1>
+    <form method="post" action="{% url 'cash_register' %}">
+        {% csrf_token %}
+        <label for="upc_code">Enter UPC Code:</label>
+        <input type="text" id="upc_code" name="upc_code" required>
+        <button type="submit">Scan Product</button>
+    </form>
+</body>
+</html>
