@@ -1,15 +1,31 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cash Register</title>
 </head>
 <body>
     <h1>Cash Register</h1>
+    {% if error %}
+        <p role="alert">{{ error }}</p>
+    {% endif %}
     <form method="post" action="{% url 'cash_register' %}">
         {% csrf_token %}
         <label for="upc_code">Enter UPC Code:</label>
-        <input type="text" id="upc_code" name="upc_code" required>
+        <input
+            type="text"
+            id="upc_code"
+            name="upc_code"
+            value="{{ upc_code|default:'' }}"
+            inputmode="numeric"
+            autocomplete="off"
+            minlength="12"
+            maxlength="12"
+            pattern="[0-9]{12}"
+            required
+        >
         <button type="submit">Scan Product</button>
     </form>
 </body>
